@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curso Oficial de Manipulación de Alimentos 100% Online | Roxana Furman</title>
+  <meta name="description" content="Obtené tu carnet oficial de manipulador de alimentos 100% online, válido en todo el país, con el curso de Roxana Furman." />
+
+  <style>
+    :root {
+      --color-orange: #f57c00;
+      --color-orange-dark: #e96f00;
+      --color-green: #16c283;
+      --color-green-dark: #0e9361;
+      --color-text: #1b1b1b;
+      --color-muted: #6b6b6b;
+      --max-width: 1080px;
+      --border-radius: 10px;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,.06);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-main); background:#fafafa; color:var(--color-text); line-height:1.5; }
+    img { max-width:100%; display:block; }
+    a { text-decoration:none; color:inherit; }
+
+    header { position:sticky; top:0; background:#fff; border-bottom:1px solid #eee; z-index:10; }
+    .header-inner {
+      max-width:var(--max-width);
+      margin:auto;
+      padding:1rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand { display:flex; gap:.75rem; align-items:center; }
+    .brand-logo {
+      width:44px; height:44px;
+      background:var(--color-orange);
+      color:#fff;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+    }
+
+    .btn {
+      padding:.6rem 1.2rem;
+      border-radius:999px;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+      font-size:.9rem;
+    }
+
+    .btn-primary { background:var(--color-green); color:#fff; }
+    .btn-outline { background:#fff; border:1px solid var(--color-orange); color:var(--color-orange); }
+
+    main {
+      max-width:var(--max-width);
+      margin:auto;
+      padding:2rem 1rem;
+    }
+
+    section { margin:3rem 0; }
+
+    .hero {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:2rem;
+      align-items:center;
+    }
+
+    .hero-title { font-size:2rem; font-weight:800; margin-bottom:1rem; }
+    .hero-highlight { color:var(--color-orange); }
+    .hero-subtitle { color:var(--color-muted); margin-bottom:1.5rem; }
+
+    ul { list-style:none; }
+    .list-check li::before {
+      content:"✔";
+      color:var(--color-green-dark);
+      margin-right:.5rem;
+    }
+
+    .card {
+      background:#fff;
+      padding:1.5rem;
+      border-radius:var(--border-radius);
+      box-shadow:var(--shadow-soft);
+    }
+
+    footer {
+      border-top:1px solid #eee;
+      padding:2rem 1rem;
+      font-size:.85rem;
+      color:var(--color-muted);
+      text-align:center;
+    }
+
+    @media(max-width:800px){
+      .hero { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-logo">R</div>
+      <div>
+        <strong>Roxana Furman</strong><br/>
+        <small>Seguridad alimentaria</small>
+      </div>
+    </div>
+    <div>
+      <a href="#formulario" class="btn btn-primary">Quiero mi carnet</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div>
+    <h1 class="hero-title">
+      Curso de <span class="hero-highlight">Manipulador de Alimentos</span>
+    </h1>
+    <p class="hero-subtitle">
+      Obtené tu carnet oficial válido en todo el país, 100% online.
+    </p>
+    <ul class="list-check">
+      <li>Curso online con material y examen</li>
+      <li>Carnet oficial con validez nacional</li>
+      <li>Acompañamiento por WhatsApp</li>
+    </ul>
+  </div>
+  <div class="card">
+    <img src="https://storage.mlcdn.com/account_image/700732/bQEI26MAjkM2WhToQjktxkAUsBtmZ0tHc2rM4zcl.png" alt="Roxana Furman">
+  </div>
+</section>
+
+<section>
+  <h2>¿Quién te acompaña?</h2>
+  <p>
+    Soy Roxana Furman, Licenciada en Tecnología Industrial de Alimentos,
+    capacitadora y auditora en seguridad alimentaria.
+  </p>
+</section>
+
+<section id="formulario">
+  <h2>Dejame tus datos</h2>
+  <form onsubmit="event.preventDefault(); alert('Gracias, Roxana te va a contactar');">
+    <p><input required placeholder="Nombre completo"></p><br/>
+    <p><input required placeholder="Email"></p><br/>
+    <p><input required placeholder="WhatsApp"></p><br/>
+    <button class="btn btn-primary">Enviar</button>
+  </form>
+</section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Roxana Furman
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

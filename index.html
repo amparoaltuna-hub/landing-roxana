@@ -4,173 +4,916 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Curso Oficial de Manipulación de Alimentos 100% Online | Roxana Furman</title>
-  <meta name="description" content="Obtené tu carnet oficial de manipulador de alimentos 100% online, válido en todo el país, con el curso de Roxana Furman." />
+  <meta name="description" content="Obtené tu carnet oficial de manipulador de alimentos 100% online, válido en todo el país, con el curso de Roxana Furman. Rápido, sencillo y con acompañamiento personalizado." />
 
+  <!-- Estilos base -->
   <style>
     :root {
       --color-orange: #f57c00;
       --color-orange-dark: #e96f00;
       --color-green: #16c283;
       --color-green-dark: #0e9361;
+      --color-bg: #ffffff;
       --color-text: #1b1b1b;
       --color-muted: #6b6b6b;
       --max-width: 1080px;
       --border-radius: 10px;
-      --shadow-soft: 0 10px 30px rgba(0,0,0,.06);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
       --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font-main); background:#fafafa; color:var(--color-text); line-height:1.5; }
-    img { max-width:100%; display:block; }
-    a { text-decoration:none; color:inherit; }
 
-    header { position:sticky; top:0; background:#fff; border-bottom:1px solid #eee; z-index:10; }
+    body {
+      font-family: var(--font-main);
+      background-color: #fafafa;
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .page-wrapper { min-height: 100vh; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
     .header-inner {
-      max-width:var(--max-width);
-      margin:auto;
-      padding:1rem;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
-    .brand { display:flex; gap:.75rem; align-items:center; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+
     .brand-logo {
-      width:44px; height:44px;
-      background:var(--color-orange);
-      color:#fff;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
+      width: 44px; height: 44px; border-radius: 50%; overflow: hidden;
+      background: var(--color-orange);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 1.4rem; flex-shrink: 0;
     }
+
+    .brand-text { display: flex; flex-direction: column; }
+    .brand-text span:first-child { font-weight: 600; font-size: 0.95rem; }
+    .brand-text span:last-child { font-size: 0.8rem; color: var(--color-muted); }
+
+    .header-cta { display: flex; align-items: center; gap: 0.75rem; }
 
     .btn {
-      padding:.6rem 1.2rem;
-      border-radius:999px;
-      font-weight:600;
-      border:none;
-      cursor:pointer;
-      font-size:.9rem;
+      border: none; border-radius: 999px;
+      padding: 0.65rem 1.2rem;
+      font-size: 0.9rem; font-weight: 600;
+      cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.18s ease;
+      white-space: nowrap;
     }
 
-    .btn-primary { background:var(--color-green); color:#fff; }
-    .btn-outline { background:#fff; border:1px solid var(--color-orange); color:var(--color-orange); }
+    .btn-primary {
+      background: var(--color-green);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(22, 194, 131, 0.3);
+    }
+    .btn-primary:hover {
+      background: var(--color-green-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(22, 194, 131, 0.35);
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--color-orange);
+      border: 1px solid rgba(245, 124, 0, 0.4);
+    }
+    .btn-outline:hover {
+      background: rgba(245, 124, 0, 0.06);
+      border-color: var(--color-orange);
+    }
 
     main {
-      max-width:var(--max-width);
-      margin:auto;
-      padding:2rem 1rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
     }
 
-    section { margin:3rem 0; }
+    section { margin: 2.5rem 0; }
 
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(245, 124, 0, 0.08);
+      color: var(--color-orange);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.98rem;
+      color: var(--color-muted);
+      max-width: 34rem;
+    }
+
+    /* HERO */
     .hero {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:2rem;
-      align-items:center;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 2rem;
     }
 
-    .hero-title { font-size:2rem; font-weight:800; margin-bottom:1rem; }
-    .hero-highlight { color:var(--color-orange); }
-    .hero-subtitle { color:var(--color-muted); margin-bottom:1.5rem; }
+    .hero-left { position: relative; }
 
-    ul { list-style:none; }
+    .hero-photo-wrapper {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background: #fff;
+    }
+    .hero-photo-wrapper img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .badge-floating {
+      position: absolute;
+      bottom: 0.6rem; left: 0.6rem;
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.75rem;
+      box-shadow: var(--shadow-soft);
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--color-green);
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .hero-highlight { color: var(--color-orange); }
+
+    .hero-subtitle {
+      font-size: 1rem; color: var(--color-muted); margin-bottom: 1.1rem;
+    }
+
+    .hero-bullets { list-style: none; margin-bottom: 1.3rem; }
+    .hero-bullets li {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.93rem; margin-bottom: 0.35rem;
+    }
+    .hero-bullets span.bullet-icon {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: rgba(22, 194, 131, 0.1);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--color-green-dark);
+      font-size: 0.8rem; margin-top: 0.1rem;
+    }
+
+    .hero-cta-group {
+      display: flex; flex-wrap: wrap;
+      gap: 0.7rem; align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-note { font-size: 0.78rem; color: var(--color-muted); }
+
+    /* Two column layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .list-check {
+      list-style: none;
+      margin-top: 0.75rem;
+    }
+    .list-check li {
+      margin-bottom: 0.35rem;
+      display: flex; gap: 0.45rem;
+      font-size: 0.9rem;
+    }
     .list-check li::before {
-      content:"✔";
-      color:var(--color-green-dark);
-      margin-right:.5rem;
+      content: "✔";
+      color: var(--color-green-dark);
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
     }
 
     .card {
-      background:#fff;
-      padding:1.5rem;
-      border-radius:var(--border-radius);
-      box-shadow:var(--shadow-soft);
+      background: #fff;
+      border-radius: var(--border-radius);
+      padding: 1.25rem 1.4rem;
+      box-shadow: var(--shadow-soft);
     }
+
+    .pill-label {
+      display: inline-flex; align-items: center;
+      border-radius: 999px;
+      padding: 0.2rem 0.55rem;
+      background: rgba(22, 194, 131, 0.08);
+      color: var(--color-green-dark);
+      font-size: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .grid-benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .benefit-item {
+      background: #fff;
+      border-radius: var(--border-radius);
+      padding: 0.85rem 0.9rem;
+      border: 1px solid #f2f2f2;
+      font-size: 0.9rem;
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+    }
+
+    .benefit-icon {
+      width: 24px; height: 24px; border-radius: 10px;
+      background: rgba(245, 124, 0, 0.1);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--color-orange-dark);
+      flex-shrink: 0;
+    }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .step-item {
+      background: #fff;
+      border-radius: var(--border-radius);
+      padding: 1rem 1rem;
+      border: 1px solid #f1f1f1;
+      position: relative;
+      padding-top: 1.6rem;
+      font-size: 0.9rem;
+    }
+
+    .step-number {
+      position: absolute;
+      top: 0.4rem; left: 0.7rem;
+      width: 22px; height: 22px;
+      border-radius: 999px;
+      background: var(--color-orange);
+      color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 600;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .testimonial-list { display: grid; gap: 0.8rem; }
+
+    .testimonial-item {
+      background: #fff;
+      border-radius: var(--border-radius);
+      padding: 0.9rem 1rem;
+      border: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-meta {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    .media-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(245, 124, 0, 0.08);
+      color: var(--color-orange-dark);
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* FAQ */
+    .faq-list { margin-top: 1.2rem; display: grid; gap: 0.75rem; }
+
+    .faq-item {
+      background: #fff;
+      border-radius: var(--border-radius);
+      padding: 0.85rem 1rem;
+      border: 1px solid #f1f1f1;
+      font-size: 0.9rem;
+    }
+
+    .faq-q { font-weight: 600; margin-bottom: 0.25rem; }
+
+    /* Form */
+    .lead-form-section { margin-top: 2rem; }
+    .lead-form { display: grid; gap: 0.75rem; margin-top: 0.9rem; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+    }
+
+    label {
+      font-size: 0.8rem; font-weight: 500;
+      margin-bottom: 0.15rem; display: block;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid #e0e0e0;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.87rem;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      background: #fff;
+    }
+
+    textarea {
+      border-radius: 12px;
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--color-orange);
+      box-shadow: 0 0 0 1px rgba(245, 124, 0, 0.2);
+    }
+
+    .checkbox {
+      display: flex; align-items: flex-start;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .checkbox input { margin-top: 0.12rem; }
+
+    /* CTA final */
+    .cta-final {
+      margin-top: 3rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--color-orange), #ffb74d);
+      color: #fff;
+      padding: 1.8rem 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .cta-final-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-final p { font-size: 0.92rem; max-width: 26rem; }
+
+    .cta-final-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .cta-final .btn-primary {
+      background: #fff;
+      color: var(--color-orange-dark);
+      box-shadow: none;
+    }
+    .cta-final .btn-primary:hover { background: #fef3e6; }
+
+    .cta-final .btn-outline {
+      border-color: rgba(255, 255, 255, 0.7);
+      color: #fff;
+      background: transparent;
+    }
+    .cta-final .btn-outline:hover { background: rgba(0, 0, 0, 0.08); }
 
     footer {
-      border-top:1px solid #eee;
-      padding:2rem 1rem;
-      font-size:.85rem;
-      color:var(--color-muted);
-      text-align:center;
+      border-top: 1px solid #f0f0f0;
+      margin-top: 2rem;
+      padding: 1.2rem 1.25rem 2rem;
+      font-size: 0.8rem;
+      color: var(--color-muted);
     }
 
-    @media(max-width:800px){
-      .hero { grid-template-columns:1fr; }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { font-size: 0.8rem; color: var(--color-muted); }
+    .footer-links a:hover { color: var(--color-orange); }
+
+    /* WhatsApp floating */
+    .whatsapp-floating {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 60;
+    }
+
+    .whatsapp-floating a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      font-size: 1.6rem;
+    }
+    .whatsapp-floating a:hover { background: #1eb457; transform: translateY(-1px); }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .hero, .two-col, .testimonials, .cta-final {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero { gap: 1.75rem; }
+      .hero-left { order: -1; }
+      .cta-final-actions { flex-direction: row; flex-wrap: wrap; }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner { padding-inline: 1rem; }
+      main { padding-inline: 1rem; }
+      .hero-title { font-size: 1.55rem; }
+      .section-title { font-size: 1.4rem; }
+      .hero-cta-group { flex-direction: column; align-items: stretch; }
+      .cta-final { padding: 1.4rem 1.1rem; }
     }
   </style>
 </head>
-
 <body>
-
-<header>
-  <div class="header-inner">
-    <div class="brand">
-      <div class="brand-logo">R</div>
-      <div>
-        <strong>Roxana Furman</strong><br/>
-        <small>Seguridad alimentaria</small>
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden="true">R</div>
+          <div class="brand-text">
+            <span>Roxana Furman</span>
+            <span>Seguridad alimentaria</span>
+          </div>
+        </div>
+        <div class="header-cta">
+          <button class="btn btn-outline" onclick="document.getElementById('faq').scrollIntoView({behavior: 'smooth'})">
+            Ver dudas frecuentes
+          </button>
+          <button class="btn btn-primary" onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'})">
+            Quiero mi carnet
+          </button>
+        </div>
       </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="inicio">
+        <div class="hero-left">
+          <div class="hero-photo-wrapper" aria-label="Foto de Roxana Furman">
+            <!-- Reemplazar src por la foto profesional de Roxana -->
+            <img src="https://storage.mlcdn.com/account_image/700732/bQEI26MAjkM2WhToQjktxkAUsBtmZ0tHc2rM4zcl.png" alt="Roxana Furman, licenciada en Tecnología Industrial de Alimentos" />
+          </div>
+          <div class="badge-floating">
+            <span class="badge-dot"></span>
+            <span>Capacitadora oficial en manipulación de alimentos</span>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="section-label">Curso oficial 100% online</div>
+          <h1 class="hero-title">
+            Curso de <span class="hero-highlight">Manipulador de Alimentos</span> para obtener tu carnet oficial
+          </h1>
+          <p class="hero-subtitle">
+            Obtené tu carnet válido en todo el país sin moverte de tu casa. Te acompaño paso a paso para que puedas trabajar de forma segura y cumplir con la normativa vigente.
+          </p>
+          <ul class="hero-bullets">
+            <li>
+              <span class="bullet-icon">✓</span>
+              <span>Carnet oficial con validez nacional (incluye Buenos Aires y CABA).</span>
+            </li>
+            <li>
+              <span class="bullet-icon">✓</span>
+              <span>Curso 100% online: material, videos y examen desde tu celular o computadora.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">✓</span>
+              <span>Acompañamiento personalizado por WhatsApp durante todo el proceso.</span>
+            </li>
+            <li>
+              <span class="bullet-icon">✓</span>
+              <span>Ideal para gastronomía, comercios de alimentos, transporte y producción.</span>
+            </li>
+          </ul>
+          <div class="hero-cta-group">
+            <button class="btn btn-primary" onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'})">
+              Quiero mi carnet oficial
+            </button>
+            <button class="btn btn-outline" onclick="window.open('https://wa.me/5490000000000?text=Hola%20Roxana,%20quiero%20info%20del%20curso%20de%20manipulador%20de%20alimentos', '_blank')">
+              Consultar por WhatsApp
+            </button>
+          </div>
+          <p class="hero-note">Te cuento cómo es el curso, qué necesitás y coordinamos el inicio en la fecha que mejor te quede.</p>
+        </div>
+      </section>
+
+      <!-- QUIÉN SOY -->
+      <section id="quien-soy">
+        <div class="two-col">
+          <div>
+            <span class="section-label">Quién te acompaña</span>
+            <h2 class="section-title">Soy Roxana Furman</h2>
+            <p class="section-subtitle">
+              Licenciada en Tecnología Industrial de Alimentos. Trabajo como capacitadora, auditora y consultora en servicios de alimentos, ayudando a personas y empresas a cumplir con las normas de higiene y seguridad alimentaria.
+            </p>
+            <ul class="list-check">
+              <li>Más de 10 años de experiencia en el sector de alimentos.</li>
+              <li>Capacitadora oficial en manipulación higiénica de alimentos.</li>
+              <li>Acompañé a cientos de personas a obtener su carnet de manipulador.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="card">
+              <span class="pill-label">Carnet oficial</span>
+              <h3 style="font-size: 1rem; margin-bottom: 0.25rem;">¿Por qué es obligatorio este carnet?</h3>
+              <p style="font-size: 0.9rem; color: var(--color-muted);">
+                La normativa exige que toda persona que manipule alimentos, de forma directa o indirecta, cuente con la capacitación y carnet oficial de manipulador. Es un requisito clave para trabajar en gastronomía, comercios, fábricas y transporte de alimentos.
+              </p>
+              <ul class="list-check" style="margin-top: 0.7rem;">
+                <li>Evita sanciones y clausuras.</li>
+                <li>Mejora tu perfil laboral y empleabilidad.</li>
+                <li>Demuestra que conocés y aplicás buenas prácticas de higiene.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARA QUIÉN ES -->
+      <section id="para-quien">
+        <span class="section-label">¿Es para vos?</span>
+        <h2 class="section-title">¿Quiénes necesitan este curso?</h2>
+        <p class="section-subtitle">
+          Este curso es para vos si trabajás o querés trabajar en cualquier rubro donde se manipulen alimentos de forma directa o indirecta.
+        </p>
+        <div class="grid-benefits">
+          <div class="benefit-item">
+            <span class="benefit-icon">🍽️</span>
+            <span>Personal de restaurantes, bares, rotiserías, deliveries y cafeterías.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🥐</span>
+            <span>Panaderías, pastelerías, confiterías y servicios de catering.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🛒</span>
+            <span>Dietéticas, verdulerías, carnicerías, almacenes y supermercados.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🚚</span>
+            <span>Transportistas, repartidores y distribuidores de alimentos.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🏭</span>
+            <span>Fábricas, depósitos, cámaras de frío y toda manipulación indirecta.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">💼</span>
+            <span>Emprendedores que elaboran productos caseros para la venta.</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'})">
+          Sí, quiero inscribirme
+        </button>
+      </section>
+
+      <!-- BENEFICIOS DEL CURSO -->
+      <section id="beneficios">
+        <span class="section-label">Qué obtenés</span>
+        <h2 class="section-title">Beneficios de hacer el curso conmigo</h2>
+        <p class="section-subtitle">
+          No es solo un trámite: es una capacitación clara, práctica y enfocada en que entiendas cómo manipular alimentos de forma segura.
+        </p>
+        <div class="grid-benefits">
+          <div class="benefit-item">
+            <span class="benefit-icon">📄</span>
+            <span>Carnet oficial de manipulador de alimentos, con validez en todo el país.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">💻</span>
+            <span>Modalidad 100% online: estudiás y rendís desde tu casa, sin traslados.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">⏱️</span>
+            <span>Proceso ágil: en general en 24 hs y hasta 3 días desde que completás todo.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🤝</span>
+            <span>Acompañamiento personalizado por WhatsApp para que no te quedes con dudas.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">📚</span>
+            <span>Material claro: PDF descargable y videos explicativos para cada módulo.</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🧼</span>
+            <span>Aprendés buenas prácticas que te cuidan a vos, a tus clientes y a tu negocio.</span>
+          </div>
+        </div>
+        <div class="two-col" style="margin-top: 1.5rem; gap: 1.5rem;">
+          <div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Así se ve tu carnet</h3>
+            <p style="font-size: 0.9rem; color: var(--color-muted);">
+              El certificado es emitido por la autoridad sanitaria correspondiente y tiene validez en todo el territorio nacional. Recibís tu carnet de manera digital y podés imprimirlo o llevarlo en tu celular.
+            </p>
+          </div>
+          <div>
+            <!-- Reemplazar por la imagen real del carnet oficial -->
+            <div class="card" style="text-align: center;">
+              <img src="https://storage.mlcdn.com/account_image/700732/E3oIuIeRChy2e3OEM3dHPrcCLmPi5stYSwoEPuHL.jpg" alt="Ejemplo de carnet oficial de manipulador de alimentos" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓMO FUNCIONA -->
+      <section id="como-funciona">
+        <span class="section-label">Proceso</span>
+        <h2 class="section-title">Obtené tu carnet en 3 pasos simples</h2>
+        <p class="section-subtitle">
+          Simplifiqué el proceso para que puedas enfocarte en aprender y completar tu certificación sin vueltas.
+        </p>
+
+        <div class="steps">
+          <!-- PASO 1 -->
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-title">Me mandás tus datos</div>
+            <p>
+              Te pido la información necesaria para darte de alta en el sistema oficial: nombre completo, DNI, CUIL, dirección, email, celular y una selfie. Con esos datos preparo tu inscripción y te habilito el acceso al curso.
+            </p>
+          </div>
+
+          <!-- PASO 2 -->
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-title">Accedés al material de estudio</div>
+            <p>
+              Te envío el PDF con los contenidos del curso y el acceso a los videos explicativos. Todo está pensado para que lo entiendas rápido, sin tecnicismos innecesarios y desde tu celular o computadora.
+            </p>
+          </div>
+
+          <!-- PASO 3 -->
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-title">Rendís el examen online</div>
+            <p>
+              Completás un formulario con preguntas simples sobre el material. Una vez aprobado, gestiono tu carnet y te lo envío digitalmente. Podés imprimirlo o llevarlo en el celular.
+            </p>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'})">
+          Quiero empezar ahora
+        </button>
+      </section>
+
+      <!-- TESTIMONIOS / PRESENCIA -->
+      <section id="testimonios">
+        <span class="section-label">Experiencias reales</span>
+        <h2 class="section-title">Lo que dicen quienes ya obtuvieron su carnet</h2>
+        <div class="testimonials">
+          <div class="testimonial-list">
+            <div class="testimonial-item">
+              <p>
+                "El proceso fue súper rápido y claro. En menos de 48 horas ya tenía mi carnet y pude presentarlo en el trabajo. Roxana estuvo atenta a todas mis dudas."
+              </p>
+              <div class="testimonial-meta">Mariana · Empleada de panadería</div>
+            </div>
+            <div class="testimonial-item">
+              <p>
+                "Tenía miedo de hacerlo online, pero el material es muy sencillo y los videos ayudan un montón. Lo recomiendo a todos los que trabajan en gastronomía."
+              </p>
+              <div class="testimonial-meta">Julián · Mozo y ayudante de cocina</div>
+            </div>
+          </div>
+          <div>
+            <div class="media-badge">Presencia en medios</div>
+            <!-- Reemplazar por una imagen real de presencia mediática -->
+            <div class="card" style="text-align: center;">
+              <img src="https://storage.mlcdn.com/account_image/700732/TwuyhJX4x8fzGZN8SrWnAwbQieN7YTBNv7HNiKuM.png" alt="Roxana Furman en medios de comunicación" />
+              <p style="font-size: 0.8rem; color: var(--color-muted); margin-top: 0.5rem;">
+                Roxana ha participado en programas y entrevistas sobre seguridad alimentaria, reforzando su experiencia y trayectoria.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PREGUNTAS FRECUENTES -->
+      <section id="faq">
+        <span class="section-label">Dudas frecuentes</span>
+        <h2 class="section-title">Preguntas frecuentes</h2>
+        <p class="section-subtitle">
+          Si todavía te quedan dudas, acá respondemos las más comunes. Y si necesitás algo más puntual, podés escribirme por WhatsApp.
+        </p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">¿Qué datos necesito para inscribirme?</div>
+            <p>Nombre completo, DNI, CUIL, dirección, email, celular de contacto, una selfie y foto de frente del DNI.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">¿Cuánto tarda en estar listo el carnet?</div>
+            <p>En general, entre 24 horas y 3 días desde que completás el examen y enviás toda la información correctamente.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">¿Sirve para todo el país?</div>
+            <p>Sí. Es un carnet oficial con validez en todas las provincias de la República Argentina, incluyendo CABA.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">¿Cómo recibo mi carnet?</div>
+            <p>Te lo envío en formato digital para que puedas mostrarlo desde el celular o imprimirlo.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">¿Necesito conocimientos previos?</div>
+            <p>No. El curso está pensado para que cualquier persona pueda entenderlo, aunque sea su primera experiencia en el rubro.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMULARIO / LEAD -->
+      <section id="formulario" class="lead-form-section">
+        <span class="section-label">Inscripción</span>
+        <h2 class="section-title">Dejame tus datos y coordinamos tu cursada</h2>
+        <p class="section-subtitle">
+          Completá este formulario para que pueda contactarte, enviarte toda la información y ayudarte a iniciar el trámite de tu carnet.
+        </p>
+
+        <form class="lead-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div>
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="telefono">Celular (con WhatsApp)</label>
+              <input type="tel" id="telefono" name="telefono" required />
+            </div>
+            <div>
+              <label for="provincia">Provincia</label>
+              <input type="text" id="provincia" name="provincia" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="actividad">¿En qué rubro trabajás o querés trabajar?</label>
+              <input type="text" id="actividad" name="actividad" placeholder="Ej: restaurante, panadería, dietética, transporte…" />
+            </div>
+          </div>
+
+          <div>
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Contame si tenés alguna duda específica o cuándo te gustaría iniciar."></textarea>
+          </div>
+
+          <div class="checkbox">
+            <input type="checkbox" id="acepto" required />
+            <label for="acepto">Acepto ser contactado/a por Roxana para recibir información sobre el curso y mi inscripción.</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enviar mis datos</button>
+        </form>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="cta-final">
+        <div>
+          <h2 class="cta-final-title">¿Lista para obtener tu carnet oficial de manipulador de alimentos?</h2>
+          <p>
+            Si trabajás o querés trabajar en el mundo de los alimentos, este carnet es un requisito obligatorio y una gran oportunidad para profesionalizarte. Te acompaño en todo el proceso para que lo consigas de forma rápida, clara y 100% online.
+          </p>
+        </div>
+        <div class="cta-final-actions">
+          <button class="btn btn-primary" onclick="document.getElementById('formulario').scrollIntoView({behavior: 'smooth'})">
+            Quiero empezar ahora
+          </button>
+          <button class="btn btn-outline" onclick="window.open('https://wa.me/5490000000000?text=Hola%20Roxana,%20quiero%20sacar%20mi%20carnet%20de%20manipulador%20de%20alimentos', '_blank')">
+            Hablar por WhatsApp
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <span>© <span id="year"></span> Roxana Furman. Todos los derechos reservados.</span>
+        <div class="footer-links">
+          <a href="#inicio">Inicio</a>
+          <a href="#para-quien">¿Para quién?</a>
+          <a href="#faq">Preguntas frecuentes</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <div class="whatsapp-floating">
+      <a href="https://wa.me/5490000000000?text=Hola%20Roxana,%20quiero%20info%20del%20curso%20de%20manipulador%20de%20alimentos" target="_blank" aria-label="Escribir a Roxana por WhatsApp">
+        ☎
+      </a>
     </div>
-    <div>
-      <a href="#formulario" class="btn btn-primary">Quiero mi carnet</a>
-    </div>
   </div>
-</header>
 
-<main>
+  <!-- Scripts básicos (ejemplo de handler local para el form) -->
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      alert("Gracias por tu mensaje. Roxana se va a contactar con vos para coordinar tu cursada.");
+      event.target.reset();
+    }
 
-<section class="hero">
-  <div>
-    <h1 class="hero-title">
-      Curso de <span class="hero-highlight">Manipulador de Alimentos</span>
-    </h1>
-    <p class="hero-subtitle">
-      Obtené tu carnet oficial válido en todo el país, 100% online.
-    </p>
-    <ul class="list-check">
-      <li>Curso online con material y examen</li>
-      <li>Carnet oficial con validez nacional</li>
-      <li>Acompañamiento por WhatsApp</li>
-    </ul>
-  </div>
-  <div class="card">
-    <img src="https://storage.mlcdn.com/account_image/700732/bQEI26MAjkM2WhToQjktxkAUsBtmZ0tHc2rM4zcl.png" alt="Roxana Furman">
-  </div>
-</section>
-
-<section>
-  <h2>¿Quién te acompaña?</h2>
-  <p>
-    Soy Roxana Furman, Licenciada en Tecnología Industrial de Alimentos,
-    capacitadora y auditora en seguridad alimentaria.
-  </p>
-</section>
-
-<section id="formulario">
-  <h2>Dejame tus datos</h2>
-  <form onsubmit="event.preventDefault(); alert('Gracias, Roxana te va a contactar');">
-    <p><input required placeholder="Nombre completo"></p><br/>
-    <p><input required placeholder="Email"></p><br/>
-    <p><input required placeholder="WhatsApp"></p><br/>
-    <button class="btn btn-primary">Enviar</button>
-  </form>
-</section>
-
-</main>
-
-<footer>
-  © <span id="year"></span> Roxana Furman
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+    // Año dinámico en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

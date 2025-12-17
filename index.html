@@ -652,27 +652,55 @@
     .footer-links { display: flex; gap: 0.9rem; flex-wrap: wrap; }
     .footer-links a:hover { color: var(--color-orange); }
 
-    /* WhatsApp floating */
-    .whatsapp-floating {
-      position: fixed;
-      bottom: 1.25rem;
-      right: 1.25rem;
-      z-index: 60;
-    }
-    .whatsapp-floating a {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: #25d366;
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      box-shadow: 0 14px 34px rgba(0,0,0,0.26);
-      transition: transform .16s ease, background .16s ease;
-    }
-    .whatsapp-floating a:hover { background: #1eb457; transform: translateY(-1px); }
+   /* WhatsApp floating (mejor nitidez) */
+.whatsapp-floating {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 60;
+}
+
+.whatsapp-floating a {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Evita que se use "tamaño de fuente" (antes era ☎) */
+  font-size: 0;
+  line-height: 0;
+
+  /* Evita el reborde/outline blanco al foco */
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  box-shadow: 0 14px 34px rgba(0,0,0,0.26);
+  transition: transform .16s ease, background .16s ease;
+}
+
+.whatsapp-floating a:hover {
+  background: #1eb457;
+  transform: translateY(-1px);
+}
+
+.whatsapp-floating a:focus,
+.whatsapp-floating a:focus-visible {
+  outline: none;
+}
+
+/* Ícono con aire (más nítido) */
+.whatsapp-floating .wa-icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
 
     /* Responsive */
     @media (max-width: 980px) {
@@ -1014,13 +1042,14 @@
     </footer>
 
     <!-- WhatsApp Floating -->
-    <div class="whatsapp-floating">
+   <div class="whatsapp-floating">
     <a href="#" onclick="openWhatsApp(); return false;" aria-label="Escribirme por WhatsApp">
-      <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false">
+      <svg class="wa-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
         <path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.7 6L4 29l8.2-1.7c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.7c-1.8 0-3.6-.5-5.2-1.5l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.6-3.4-1.6-5.3 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10zm5.6-7.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-1 1.1-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6 0-.1-.7-1.6-1-2.2-.3-.6-.6-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9 0 1.7 1.2 3.3 1.4 3.5.2.2 2.4 3.6 5.9 5 .8.3 1.4.5 1.9.6.8.2 1.6.2 2.2.1.7-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4 0-.2-.3-.3-.6-.4z"/>
       </svg>
     </a>
   </div>
+
 
   </div>
 

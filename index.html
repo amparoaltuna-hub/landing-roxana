@@ -13,8 +13,6 @@
       --color-green: #16c283;
       --color-green-dark: #0e9361;
 
-      --color-bg: #ffffff;
-      --color-surface: #ffffff;
       --color-text: #1b1b1b;
       --color-muted: #6b6b6b;
 
@@ -30,7 +28,9 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-main);
-      background: #fafafa;
+      background: radial-gradient(900px 520px at 15% 10%, rgba(245,124,0,0.10), rgba(255,255,255,0) 60%),
+                  radial-gradient(900px 520px at 85% 18%, rgba(22,194,131,0.10), rgba(255,255,255,0) 60%),
+                  #f6f6f8;
       color: var(--color-text);
       line-height: 1.45;
     }
@@ -40,11 +40,11 @@
 
     .page { min-height: 100vh; }
 
-    /* Top promo bar (estilo competencia) */
+    /* Top promo bar */
     .topbar {
       background: var(--color-green);
       color: #fff;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.9rem;
     }
     .topbar-inner {
@@ -52,10 +52,9 @@
       margin: 0 auto;
       padding: 0.65rem 1.25rem;
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 0.5rem;
       text-align: center;
+      gap: 0.5rem;
     }
 
     /* Header */
@@ -63,9 +62,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #f0f0f0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .header-inner {
       max-width: var(--max-width);
@@ -92,13 +91,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 1.4rem;
       flex-shrink: 0;
       box-shadow: 0 10px 20px rgba(245, 124, 0, 0.22);
     }
     .brand-text { display: flex; flex-direction: column; min-width: 0; }
-    .brand-text .name { font-weight: 700; font-size: 0.98rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-text .name { font-weight: 800; font-size: 0.98rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .brand-text .tag  { font-size: 0.82rem; color: var(--color-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     .nav-actions {
@@ -113,7 +112,7 @@
       border: none;
       border-radius: 999px;
       padding: 0.7rem 1.15rem;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.92rem;
       cursor: pointer;
       display: inline-flex;
@@ -163,7 +162,43 @@
       margin: 0 auto;
       padding: 1.25rem 1.25rem 3.2rem;
     }
-    section { margin: 2.8rem 0; }
+    section { margin: 2.4rem 0; }
+
+    /* Block wrapper (fondos + rectángulos superpuestos) */
+    .block-wrap {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: var(--shadow-soft);
+      background: linear-gradient(135deg, #ffffff, #fbfbfd);
+    }
+    .block-wrap::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 240px;
+      left: -160px;
+      top: -90px;
+      border-radius: 28px;
+      background: rgba(245,124,0,0.14);
+      transform: rotate(-8deg);
+    }
+    .block-wrap::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 240px;
+      right: -180px;
+      bottom: -110px;
+      border-radius: 28px;
+      background: rgba(22,194,131,0.14);
+      transform: rotate(10deg);
+    }
+    .block-inner {
+      position: relative;
+      padding: 2.2rem 2.0rem;
+    }
 
     .kicker {
       display: inline-flex;
@@ -174,7 +209,7 @@
       background: rgba(245,124,0,0.10);
       color: var(--color-orange);
       font-size: 0.78rem;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 0.85rem;
@@ -184,136 +219,74 @@
       font-size: 1.85rem;
       line-height: 1.12;
       margin-bottom: 0.65rem;
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: -0.02em;
     }
     .p-muted {
       color: var(--color-muted);
       font-size: 1rem;
-      max-width: 46rem;
+      max-width: 52rem;
     }
 
-    /* HERO (estilo competencia, pero colores Roxana) */
+    /* HERO */
     .hero-wrap {
-      border-radius: var(--radius-lg);
+      border-radius: 26px;
       overflow: hidden;
-      background: radial-gradient(1100px 520px at 10% 20%, rgba(245,124,0,0.14), rgba(255,255,255,0) 55%),
-                  radial-gradient(900px 520px at 85% 25%, rgba(22,194,131,0.16), rgba(255,255,255,0) 60%),
-                  linear-gradient(135deg, #f7fbff, #ffffff);
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.05);
+      background:
+        radial-gradient(1100px 520px at 12% 22%, rgba(245,124,0,0.18), rgba(255,255,255,0) 58%),
+        radial-gradient(900px 520px at 85% 30%, rgba(22,194,131,0.18), rgba(255,255,255,0) 60%),
+        linear-gradient(135deg, #f7fbff, #ffffff);
+      position: relative;
     }
-
+    .hero-wrap::before {
+      content: "";
+      position: absolute;
+      width: 560px;
+      height: 260px;
+      left: -180px;
+      bottom: -130px;
+      border-radius: 34px;
+      background: rgba(245,124,0,0.12);
+      transform: rotate(8deg);
+    }
+    .hero-wrap::after {
+      content: "";
+      position: absolute;
+      width: 560px;
+      height: 260px;
+      right: -210px;
+      top: -140px;
+      border-radius: 34px;
+      background: rgba(22,194,131,0.12);
+      transform: rotate(-10deg);
+    }
     .hero {
+      position: relative;
+      padding: 2.6rem 2.2rem;
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
-      gap: 2rem;
-      align-items: center;
-      padding: 2.4rem 2.2rem;
+      gap: 1.1rem;
+      align-content: start;
     }
-
     .hero h1 {
       font-size: 3rem;
       line-height: 1.02;
-      font-weight: 950;
+      font-weight: 980;
       letter-spacing: -0.035em;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.1rem;
     }
-    .hero h1 .hl { color: var(--color-orange); }
     .hero .subline {
       font-size: 1.08rem;
       color: var(--color-muted);
-      margin-bottom: 1.2rem;
-      max-width: 42rem;
+      max-width: 48rem;
     }
-
-    .hero-points {
-      list-style: none;
-      display: grid;
-      gap: 0.55rem;
-      margin: 0 0 1.35rem 0;
-      padding: 0;
-      max-width: 46rem;
-    }
-    .hero-points li {
-      display: grid;
-      grid-template-columns: 22px 1fr;
-      gap: 0.6rem;
-      align-items: start;
-      font-size: 0.98rem;
-      color: #2a2a2a;
-    }
-    .checkdot {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(22,194,131,0.14);
-      color: var(--color-green-dark);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      margin-top: 0.05rem;
-    }
-
     .hero-cta {
+      margin-top: 0.5rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
       align-items: center;
-    }
-
-    .hero-right {
-      position: relative;
-      min-height: 340px;
-      display: grid;
-      align-content: center;
-      justify-items: center;
-    }
-
-    .hero-photo {
-      width: min(360px, 100%);
-      border-radius: 26px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,0.06);
-    }
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .floating-card {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      right: 10px;
-      background: rgba(255,255,255,0.96);
-      border: 1px solid rgba(0,0,0,0.06);
-      border-radius: 999px;
-      padding: 0.55rem 0.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.10);
-      font-size: 0.85rem;
-      color: #2b2b2b;
-      text-align: center;
-    }
-    .floating-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-weight: 800;
-      color: var(--color-orange-dark);
-    }
-    .pill-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--color-green);
     }
 
     /* Steps - 3 cards visuales */
@@ -329,7 +302,7 @@
       min-height: 240px;
       position: relative;
       background: #101010;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 14px 38px rgba(0,0,0,0.12);
       border: 1px solid rgba(0,0,0,0.06);
       display: grid;
       align-content: end;
@@ -343,7 +316,7 @@
       background:
         radial-gradient(700px 260px at 20% 15%, rgba(245,124,0,0.35), rgba(0,0,0,0) 55%),
         radial-gradient(640px 260px at 80% 20%, rgba(22,194,131,0.35), rgba(0,0,0,0) 60%),
-        linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.82));
+        linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.86));
       z-index: 0;
     }
     .step-card .bg {
@@ -365,7 +338,7 @@
     }
     .step-card .title {
       font-size: 1.35rem;
-      font-weight: 950;
+      font-weight: 980;
       letter-spacing: -0.02em;
       margin-bottom: 0.35rem;
     }
@@ -375,38 +348,31 @@
       max-width: 26rem;
     }
 
-    /* Social proof / cifras (estilo competencia) */
+    /* Social proof / cifras */
     .proof {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
       gap: 1.6rem;
       align-items: center;
-      margin-top: 1.4rem;
+      margin-top: 1.2rem;
     }
-    .proof h3 {
-      font-size: 2.05rem;
-      line-height: 1.08;
-      font-weight: 950;
-      letter-spacing: -0.03em;
-    }
-    .proof h3 .hl { color: var(--color-orange); }
     .proof .stat {
       background: #fff;
       border-radius: 22px;
       padding: 1.3rem 1.35rem;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
       border: 1px solid rgba(0,0,0,0.05);
     }
     .stat .big {
       font-size: 2.2rem;
-      font-weight: 950;
+      font-weight: 980;
       color: var(--color-green-dark);
       letter-spacing: -0.02em;
       margin-bottom: 0.15rem;
     }
     .stat .small {
       color: var(--color-muted);
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .avatars-strip {
@@ -428,27 +394,49 @@
     .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
     .split-cta {
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
       flex-wrap: wrap;
-      background: #fff;
+      background: rgba(255,255,255,0.92);
       border-radius: 22px;
-      padding: 1.1rem 1.2rem;
+      padding: 1.05rem 1.1rem;
       border: 1px solid rgba(0,0,0,0.05);
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
     }
     .split-cta .txt {
       color: #262626;
-      font-weight: 800;
+      font-weight: 900;
     }
-    .split-cta .txt span {
-      color: var(--color-orange-dark);
-    }
+    .split-cta .txt span { color: var(--color-orange-dark); }
 
-    /* Why + For who (menos texto) */
+    /* Logos empresas */
+    .logos {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.1rem;
+      align-items: center;
+    }
+    .logo-slot {
+      height: 54px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.92);
+      border: 1px dashed rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8a8a;
+      font-weight: 900;
+      font-size: 0.82rem;
+      padding: 0.4rem;
+      text-align: center;
+    }
+    .logo-slot img { max-height: 34px; object-fit: contain; }
+
+    /* Simple cards */
     .two-col {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
@@ -457,21 +445,18 @@
       margin-top: 1.2rem;
     }
     .card {
-      background: #fff;
+      background: rgba(255,255,255,0.92);
       border-radius: 22px;
       padding: 1.25rem 1.25rem;
       border: 1px solid rgba(0,0,0,0.05);
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
     }
     .card h4 {
       font-size: 1.1rem;
-      font-weight: 900;
+      font-weight: 950;
       margin-bottom: 0.45rem;
     }
-    .mini {
-      font-size: 0.96rem;
-      color: var(--color-muted);
-    }
+    .mini { font-size: 0.96rem; color: var(--color-muted); }
 
     .mini-list {
       margin-top: 0.85rem;
@@ -487,78 +472,10 @@
       font-size: 0.98rem;
     }
     .mini-list li::before {
-      content: "✔";
-      color: var(--color-green-dark);
-      font-weight: 900;
+      content: "•";
+      color: var(--color-orange);
+      font-weight: 950;
       margin-top: 0.05rem;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 0.95rem;
-    }
-    .chip {
-      background: rgba(245,124,0,0.10);
-      color: var(--color-orange-dark);
-      font-weight: 800;
-      font-size: 0.86rem;
-      padding: 0.45rem 0.65rem;
-      border-radius: 999px;
-    }
-
-    /* Logos empresas */
-    .logos {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 0.8rem;
-      margin-top: 1.1rem;
-      align-items: center;
-    }
-    .logo-slot {
-      height: 54px;
-      border-radius: 14px;
-      background: #fff;
-      border: 1px dashed rgba(0,0,0,0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8a8a8a;
-      font-weight: 800;
-      font-size: 0.82rem;
-      padding: 0.4rem;
-      text-align: center;
-    }
-    .logo-slot img { max-height: 34px; object-fit: contain; }
-
-    /* About Roxana */
-    .about {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: 1.4rem;
-      align-items: center;
-      margin-top: 1.2rem;
-    }
-    .about .photo {
-      background: #fff;
-      border-radius: 26px;
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(0,0,0,0.06);
-    }
-    .about .photo img { width: 100%; height: 100%; object-fit: cover; }
-    .about .badges { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 0.9rem; }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(22,194,131,0.12);
-      color: var(--color-green-dark);
-      font-weight: 900;
-      font-size: 0.86rem;
     }
 
     /* FAQ */
@@ -568,7 +485,7 @@
       margin-top: 1.1rem;
     }
     details {
-      background: #fff;
+      background: rgba(255,255,255,0.92);
       border-radius: 18px;
       padding: 0.9rem 1rem;
       border: 1px solid rgba(0,0,0,0.05);
@@ -576,7 +493,7 @@
     }
     summary {
       cursor: pointer;
-      font-weight: 900;
+      font-weight: 950;
       list-style: none;
       display: flex;
       align-items: center;
@@ -593,7 +510,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
+      font-weight: 950;
       flex-shrink: 0;
     }
     details p {
@@ -605,12 +522,12 @@
 
     /* Form */
     .form-wrap {
-      margin-top: 1.2rem;
-      background: #fff;
+      margin-top: 1.1rem;
+      background: rgba(255,255,255,0.92);
       border-radius: 22px;
       padding: 1.25rem 1.25rem;
       border: 1px solid rgba(0,0,0,0.05);
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.07);
     }
     form { display: grid; gap: 0.85rem; margin-top: 0.9rem; }
     .row {
@@ -618,7 +535,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.85rem;
     }
-    label { font-size: 0.82rem; font-weight: 800; margin-bottom: 0.25rem; display: block; }
+    label { font-size: 0.82rem; font-weight: 900; margin-bottom: 0.25rem; display: block; }
     input, textarea {
       width: 100%;
       border: 1px solid #e3e3e3;
@@ -659,17 +576,45 @@
       gap: 1.2rem;
       align-items: center;
       box-shadow: 0 18px 44px rgba(245,124,0,0.22);
+      position: relative;
+    }
+    .final-cta::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 220px;
+      left: -160px;
+      top: -110px;
+      border-radius: 34px;
+      background: rgba(255,255,255,0.14);
+      transform: rotate(-10deg);
+    }
+    .final-cta::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 220px;
+      right: -180px;
+      bottom: -120px;
+      border-radius: 34px;
+      background: rgba(0,0,0,0.08);
+      transform: rotate(10deg);
+    }
+    .final-cta .inner {
+      position: relative;
+      display: contents;
     }
     .final-cta h3 {
       font-size: 1.65rem;
       line-height: 1.12;
-      font-weight: 950;
+      font-weight: 980;
       margin-bottom: 0.35rem;
       letter-spacing: -0.02em;
     }
-    .final-cta p { opacity: 0.95; max-width: 44rem; }
+    .final-cta p { opacity: 0.96; max-width: 44rem; }
 
     .final-cta .actions {
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: 0.65rem;
@@ -690,7 +635,7 @@
     /* Footer */
     footer {
       margin-top: 2.5rem;
-      border-top: 1px solid #eee;
+      border-top: 1px solid rgba(0,0,0,0.08);
       padding: 1.2rem 1.25rem 2.2rem;
       color: var(--color-muted);
       font-size: 0.85rem;
@@ -731,23 +676,22 @@
 
     /* Responsive */
     @media (max-width: 980px) {
-      .hero { grid-template-columns: minmax(0, 1fr); padding: 2rem 1.35rem; }
-      .hero h1 { font-size: 2.35rem; }
-      .hero-right { min-height: 300px; }
+      .hero { padding: 2rem 1.35rem; }
+      .hero h1 { font-size: 2.25rem; }
       .steps-grid { grid-template-columns: minmax(0, 1fr); }
       .proof { grid-template-columns: minmax(0, 1fr); }
       .two-col { grid-template-columns: minmax(0, 1fr); }
-      .about { grid-template-columns: minmax(0, 1fr); }
       .final-cta { grid-template-columns: minmax(0, 1fr); }
       .final-cta .actions { flex-direction: row; flex-wrap: wrap; }
       .logos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .row { grid-template-columns: minmax(0, 1fr); }
+      .block-inner { padding: 1.65rem 1.25rem; }
     }
 
     @media (max-width: 560px) {
       .header-inner { grid-template-columns: minmax(0, 1fr); }
       .nav-actions { justify-content: flex-start; }
-      .hero h1 { font-size: 1.95rem; }
+      .hero h1 { font-size: 1.85rem; }
       .topbar-inner { padding-inline: 1rem; }
       main { padding-inline: 1rem; }
       .logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -787,341 +731,270 @@
     </header>
 
     <main>
-      <!-- HERO -->
+      <!-- HERO (SIN FOTO + SIN ITEMS CON TILDE) -->
       <section id="inicio" class="hero-wrap">
         <div class="hero">
-          <div>
-            <div class="kicker">Curso oficial 100% online</div>
+          <div class="kicker">Curso oficial 100% online</div>
+          <h1>Curso de Manipulador de Alimentos</h1>
+          <p class="subline"><strong>Obtené tu Carnet de Manipulador Oficial con Validez Nacional.</strong></p>
 
-            <h1>
-              Curso de <span class="hl">Manipulador de Alimentos</span>
-            </h1>
-
-            <p class="subline">
-              Obtené tu <strong>Carnet de Manipulador Oficial con Validez Nacional</strong>.
-            </p>
-
-            <ul class="hero-points" aria-label="Beneficios principales">
-              <li>
-                <span class="checkdot">✓</span>
-                <span><strong>Es EL carnet oficial con validez nacional</strong> (todas las provincias, incl. CABA y Provincia de Buenos Aires). <strong>Vigencia:</strong> hasta 3 años.</span>
-              </li>
-              <li>
-                <span class="checkdot">✓</span>
-                <span>Curso 100% online: material, videos y <strong>cuestionario</strong> desde tu celular o computadora.</span>
-              </li>
-              <li>
-                <span class="checkdot">✓</span>
-                <span><strong>Proceso ágil:</strong> en general en 24–48 hs desde que completás todo.</span>
-              </li>
-              <li>
-                <span class="checkdot">✓</span>
-                <span>Te acompaño por WhatsApp durante todo el proceso.</span>
-              </li>
-            </ul>
-
-            <div class="hero-cta">
-              <button class="btn btn-cta-orange" type="button" onclick="scrollToId('formulario')">
-                Quiero mi carnet oficial
-              </button>
-              <button class="btn btn-outline" type="button" onclick="openWhatsApp()">
-                Consultar por WhatsApp
-              </button>
-            </div>
-          </div>
-
-          <div class="hero-right">
-            <div class="hero-photo" aria-label="Imagen principal (reemplazable)">
-              <!-- Reemplazá esta imagen por una foto de Roxana (ideal: fondo claro, plano medio). -->
-              <img
-                src="https://storage.mlcdn.com/account_image/700732/bQEI26MAjkM2WhToQjktxkAUsBtmZ0tHc2rM4zcl.png"
-                alt="Roxana Furman"
-              />
-            </div>
-
-            <div class="floating-card" aria-label="Etiqueta destacada">
-              <span class="floating-pill"><span class="pill-dot"></span> Soporte humano real</span>
-              <span>• te respondo por WhatsApp</span>
-            </div>
+          <div class="hero-cta">
+            <button class="btn btn-cta-orange" type="button" onclick="scrollToId('formulario')">
+              Quiero mi carnet oficial
+            </button>
+            <button class="btn btn-outline" type="button" onclick="openWhatsApp()">
+              Consultar por WhatsApp
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- PASOS (3 cards visuales) -->
-      <section id="pasos">
-        <div class="kicker">Curso + Carnet</div>
-        <div class="h2">Tu trámite resuelto en 3 pasos</div>
-        <p class="p-muted">Simple, claro y 100% online. Yo te guío en cada paso.</p>
+      <!-- PASOS (subtítulo actualizado) -->
+      <section id="pasos" class="block-wrap">
+        <div class="block-inner">
+          <div class="kicker">Curso + Carnet</div>
+          <div class="h2">Tu trámite resuelto en 3 pasos</div>
+          <p class="p-muted">Simple, ágil y 100% online.</p>
 
-        <div class="steps-grid" aria-label="Pasos del proceso">
-          <article class="step-card">
-            <div class="bg" aria-hidden="true">
-              <!-- Placeholder: reemplazá por imagen relacionada (persona con celular / formulario). -->
-              <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1200&q=70" alt="" />
-            </div>
-            <div class="content">
-              <div class="title">1) Te tomo los datos</div>
-              <div class="desc">Me enviás lo necesario y yo preparo tu alta para que empieces sin vueltas.</div>
-            </div>
-          </article>
+          <div class="steps-grid" aria-label="Pasos del proceso">
+            <article class="step-card">
+              <div class="bg" aria-hidden="true">
+                <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1200&q=70" alt="" />
+              </div>
+              <div class="content">
+                <div class="title">1) Te tomo los datos</div>
+                <div class="desc">Me enviás lo necesario y yo preparo tu alta para que empieces sin vueltas.</div>
+              </div>
+            </article>
 
-          <article class="step-card">
-            <div class="bg" aria-hidden="true">
-              <!-- Placeholder: reemplazá por imagen de estudio / videos cortos. -->
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=70" alt="" />
-            </div>
-            <div class="content">
-              <div class="title">2) Estudiás online</div>
-              <div class="desc">Te envío material fácil y claro para aprobar el cuestionario.</div>
-            </div>
-          </article>
+            <article class="step-card">
+              <div class="bg" aria-hidden="true">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=70" alt="" />
+              </div>
+              <div class="content">
+                <div class="title">2) Estudiás online</div>
+                <div class="desc">Te envío material fácil y claro para aprobar el cuestionario.</div>
+              </div>
+            </article>
 
-          <article class="step-card">
-            <div class="bg" aria-hidden="true">
-              <!-- Placeholder: reemplazá por imagen de carnet / certificado. -->
-              <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=70" alt="" />
-            </div>
-            <div class="content">
-              <div class="title">3) Cuestionario + carnet</div>
-              <div class="desc">Completás el cuestionario online y yo gestiono tu carnet. Listo en 24–48 hs (en general).</div>
-            </div>
-          </article>
-        </div>
+            <article class="step-card">
+              <div class="bg" aria-hidden="true">
+                <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=70" alt="" />
+              </div>
+              <div class="content">
+                <div class="title">3) Cuestionario + carnet</div>
+                <div class="desc">Completás el cuestionario online y yo gestiono tu carnet. Listo en 24–48 hs (en general).</div>
+              </div>
+            </article>
+          </div>
 
-        <div style="margin-top: 1.1rem;">
-          <button class="btn btn-primary" type="button" onclick="scrollToId('formulario')">
-            Empezá ahora
-          </button>
+          <div style="margin-top: 1.1rem;">
+            <button class="btn btn-primary" type="button" onclick="scrollToId('formulario')">
+              Empezá ahora
+            </button>
+          </div>
         </div>
       </section>
 
-      <!-- PRUEBA SOCIAL / CIFRAS (estilo competencia) -->
-      <section id="prueba-social">
-        <div class="proof">
-          <div>
-            <div class="h2" style="margin-bottom:0.5rem;">
-              Sumate a quienes ya obtuvieron su <span style="color:var(--color-orange);">Carnet Oficial</span>
-            </div>
-            <p class="p-muted">
-              Ya acompañé a miles de personas y equipos a certificar de forma simple y 100% online.
-            </p>
+      <!-- PRUEBA SOCIAL -->
+      <section id="prueba-social" class="block-wrap">
+        <div class="block-inner">
+          <div class="h2" style="margin-bottom:0.5rem;">
+            Sumate a quienes ya obtuvieron su <span style="color:var(--color-orange);">Carnet Oficial</span>
+          </div>
+          <p class="p-muted">Ya acompañé a miles de personas y equipos a certificar de forma simple y 100% online.</p>
 
-            <div class="avatars-strip" aria-label="Espacio para fotos (placeholders)">
-              <!-- Reemplazá por fotos reales / mockups. -->
-              <div class="avatar"><img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
-              <div class="avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
-              <div class="avatar"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
-              <div class="avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
-              <div class="avatar"><img src="https://images.unsplash.com/photo-1524503033411-f65f5096f16b?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
+          <div class="proof">
+            <div>
+              <div class="avatars-strip" aria-label="Espacio para fotos (placeholders)">
+                <div class="avatar"><img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
+                <div class="avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
+                <div class="avatar"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
+                <div class="avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
+                <div class="avatar"><img src="https://images.unsplash.com/photo-1524503033411-f65f5096f16b?auto=format&fit=crop&w=220&q=70" alt="Alumno/a" /></div>
+              </div>
+
+              <div class="split-cta" role="note" aria-label="Mensaje breve">
+                <div class="txt">¿Querés certificar a tu equipo? <span>Consultame por opción empresas.</span></div>
+                <button class="btn btn-outline" type="button" onclick="openWhatsApp('Hola Roxana, quiero info para certificar a mi equipo (opción empresas).')">
+                  Consultar por WhatsApp
+                </button>
+              </div>
             </div>
 
-            <div class="split-cta" role="note" aria-label="Mensaje breve">
-              <div class="txt">¿Querés certificar a tu equipo? <span>Consultame por opción empresas.</span></div>
-              <button class="btn btn-outline" type="button" onclick="openWhatsApp('Hola Roxana, quiero info para certificar a mi equipo (opción empresas).')">
-                Consultar por WhatsApp
-              </button>
-            </div>
+            <aside class="stat" aria-label="Cifra destacada">
+              <div class="big">+4.000</div>
+              <div class="small">carnets gestionados</div>
+              <div style="height:0.65rem;"></div>
+              <div class="mini">Acompañamiento 1 a 1 por WhatsApp.</div>
+            </aside>
           </div>
 
-          <aside class="stat" aria-label="Cifra destacada">
-            <div class="big">+4.000</div>
-            <div class="small">carnets gestionados</div>
-            <div style="height:0.65rem;"></div>
-            <div class="mini">Acompañamiento 1 a 1 por WhatsApp.</div>
-          </aside>
-        </div>
+          <!-- Logos empresas -->
+          <div style="margin-top: 1.6rem;">
+            <div class="kicker">Empresas que ya acompañé</div>
+            <p class="p-muted">Dejo espacio para que sumes logos (me los pasás y los coloco).</p>
 
-        <!-- Logos empresas -->
-        <div style="margin-top: 1.6rem;">
-          <div class="kicker">Empresas que ya acompañé</div>
-          <p class="p-muted">Dejo espacio para que sumes logos (me los pasás y los coloco).</p>
-
-          <div class="logos" aria-label="Logos empresas (placeholders)">
-            <!-- Reemplazá cada bloque por <img src="URL_LOGO" alt="Empresa X" /> -->
-            <div class="logo-slot">Logo 1</div>
-            <div class="logo-slot">Logo 2</div>
-            <div class="logo-slot">Logo 3</div>
-            <div class="logo-slot">Logo 4</div>
-            <div class="logo-slot">Logo 5</div>
-            <div class="logo-slot">Logo 6</div>
+            <div class="logos" aria-label="Logos empresas (placeholders)">
+              <div class="logo-slot">Logo 1</div>
+              <div class="logo-slot">Logo 2</div>
+              <div class="logo-slot">Logo 3</div>
+              <div class="logo-slot">Logo 4</div>
+              <div class="logo-slot">Logo 5</div>
+              <div class="logo-slot">Logo 6</div>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- POR QUÉ + PARA QUIÉN -->
-      <section id="por-que">
-        <div class="kicker">Información clave</div>
-        <div class="h2">¿Por qué necesitás el carnet?</div>
-        <p class="p-muted">Porque el <strong>Código Alimentario Argentino exige</strong> capacitación oficial para quienes manipulan alimentos (directa o indirectamente).</p>
+      <section id="por-que" class="block-wrap">
+        <div class="block-inner">
+          <div class="kicker">Información clave</div>
+          <div class="h2">¿Por qué necesitás el carnet?</div>
+          <p class="p-muted">Porque el <strong>Código Alimentario Argentino exige</strong> capacitación oficial para quienes manipulan alimentos (directa o indirectamente).</p>
 
-        <div class="two-col">
-          <div class="card">
-            <h4>¿Qué ganás con el carnet?</h4>
-            <ul class="mini-list">
-              <li>Evita multas, sanciones y clausuras.</li>
-              <li>Mejora tu perfil laboral y <strong>profesionalismo</strong>.</li>
-              <li>Demuestra buenas prácticas de higiene y seguridad.</li>
-            </ul>
+          <div class="two-col">
+            <div class="card">
+              <h4>¿Qué ganás con el carnet?</h4>
+              <ul class="mini-list">
+                <li>Evita multas, sanciones y clausuras.</li>
+                <li>Mejora tu perfil laboral y profesionalismo.</li>
+                <li>Demuestra buenas prácticas de higiene y seguridad.</li>
+              </ul>
+              <div style="margin-top: 0.95rem;">
+                <button class="btn btn-primary" type="button" onclick="scrollToId('formulario')">Quiero mi carnet</button>
+              </div>
+            </div>
 
-            <div class="chips" aria-label="Detalle rápido">
-              <div class="chip">Validez nacional</div>
-              <div class="chip">Incluye CABA + PBA</div>
-              <div class="chip">Vigencia hasta 3 años</div>
+            <div class="card">
+              <h4>¿Para quién está pensado?</h4>
+              <p class="mini">Si trabajás (o querés trabajar) con alimentos, esto es para vos.</p>
+              <ul class="mini-list">
+                <li>Gastronomía, bares, rotiserías, cafeterías y delivery.</li>
+                <li>Panaderías, pastelerías, catering y eventos.</li>
+                <li>Dietéticas, carnicerías, verdulerías y supermercados.</li>
+                <li>Transporte y distribución de alimentos.</li>
+                <li>Plantas elaboradoras, comedores de empresas y escuelas.</li>
+                <li>Emprendimientos de elaboración para la venta.</li>
+              </ul>
             </div>
           </div>
-
-          <div class="card">
-            <h4>¿Para quién está pensado?</h4>
-            <p class="mini">Si trabajás (o querés trabajar) con alimentos, esto es para vos.</p>
-
-            <ul class="mini-list">
-              <li>Gastronomía, bares, rotiserías, cafeterías y delivery.</li>
-              <li>Panaderías, pastelerías, catering y eventos.</li>
-              <li>Dietéticas, carnicerías, verdulerías y supermercados.</li>
-              <li>Transporte y distribución de alimentos.</li>
-              <li><strong>Plantas elaboradoras</strong>, comedores de empresas y escuelas.</li>
-              <li>Emprendimientos de elaboración para la venta.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div style="margin-top: 1.1rem;">
-          <button class="btn btn-primary" type="button" onclick="scrollToId('formulario')">Quiero mi carnet</button>
         </div>
       </section>
 
-      <!-- QUIÉN SOY (más abajo, como la competencia) -->
-      <section id="roxana">
-        <div class="kicker">Quién te acompaña</div>
-        <div class="h2">Soy Roxana Furman</div>
-        <p class="p-muted">Trabajo en seguridad alimentaria hace más de <strong>30 años</strong>. Me enfoco en hacerlo simple: te explico claro y te acompaño por WhatsApp.</p>
-
-        <div class="about">
-          <div class="photo" aria-label="Foto de Roxana (reemplazable)">
-            <!-- Reemplazá por una foto profesional alternativa si querés (ideal: fondo claro). -->
-            <img src="https://storage.mlcdn.com/account_image/700732/bQEI26MAjkM2WhToQjktxkAUsBtmZ0tHc2rM4zcl.png" alt="Roxana Furman" />
-          </div>
-
-          <div class="card">
-            <h4>Lo que vas a notar conmigo</h4>
-            <ul class="mini-list">
-              <li>Material fácil y claro para aprobar el cuestionario.</li>
-              <li>Soporte humano real: te respondo yo.</li>
-              <li>Proceso ágil: en general 24–48 hs desde que completás todo.</li>
-              <li>Te lo envío digital: lo mostrás desde el celular o lo imprimís.</li>
-            </ul>
-
-            <div class="badges" aria-label="Badges">
-              <div class="badge">✔ 100% online</div>
-              <div class="badge">✔ Validez nacional</div>
-              <div class="badge">✔ 1 a 1 por WhatsApp</div>
-            </div>
-          </div>
+      <!-- ROXANA -->
+      <section id="roxana" class="block-wrap">
+        <div class="block-inner">
+          <div class="kicker">Quién te acompaña</div>
+          <div class="h2">Soy Roxana Furman</div>
+          <p class="p-muted">Trabajo en seguridad alimentaria hace más de <strong>30 años</strong>. Me enfoco en hacerlo simple y acompañarte por WhatsApp.</p>
         </div>
       </section>
 
       <!-- FAQ -->
-      <section id="faq">
-        <div class="kicker">Dudas frecuentes</div>
-        <div class="h2">Preguntas frecuentes</div>
-        <p class="p-muted">
-          Si todavía te quedan dudas, acá respondemos las más comunes. Y si necesitás algo más puntual, podés escribirme por WhatsApp.
-        </p>
+      <section id="faq" class="block-wrap">
+        <div class="block-inner">
+          <div class="kicker">Dudas frecuentes</div>
+          <div class="h2">Preguntas frecuentes</div>
+          <p class="p-muted">
+            Si todavía te quedan dudas, acá respondemos las más comunes. Y si necesitás algo más puntual, podés escribirme por WhatsApp.
+          </p>
 
-        <div class="faq" aria-label="Preguntas frecuentes">
-          <details>
-            <summary>¿Qué datos necesito para inscribirme? <span class="icon">+</span></summary>
-            <p>Nombre completo, DNI, CUIL, dirección, email, celular y una selfie + foto del DNI (frente).</p>
-          </details>
+          <div class="faq" aria-label="Preguntas frecuentes">
+            <details>
+              <summary>¿Qué datos necesito para inscribirme? <span class="icon">+</span></summary>
+              <p>Nombre completo, DNI, CUIL, dirección, email, celular y una selfie + foto del DNI (frente).</p>
+            </details>
 
-          <details>
-            <summary>¿Cuánto tarda en estar listo el carnet? <span class="icon">+</span></summary>
-            <p>En general, <strong>24–48 hs</strong> desde que completás todo (según validaciones y carga correcta de datos).</p>
-          </details>
+            <details>
+              <summary>¿Cuánto tarda en estar listo el carnet? <span class="icon">+</span></summary>
+              <p>En general, <strong>24–48 hs</strong> desde que completás todo (según validaciones y carga correcta de datos).</p>
+            </details>
 
-          <details>
-            <summary>¿Sirve para todo el país? <span class="icon">+</span></summary>
-            <p>Sí. <strong>Es EL carnet oficial con validez en todas las provincias de la República Argentina, incluyendo CABA</strong> (y Provincia de Buenos Aires).</p>
-          </details>
+            <details>
+              <summary>¿Sirve para todo el país? <span class="icon">+</span></summary>
+              <p>Sí. <strong>Es EL carnet oficial con validez en todas las provincias de la República Argentina, incluyendo CABA</strong> (y Provincia de Buenos Aires).</p>
+            </details>
 
-          <details>
-            <summary>¿Cómo recibo mi carnet? <span class="icon">+</span></summary>
-            <p>Te lo envío en formato digital. Podés llevarlo en el celular o imprimirlo.</p>
-          </details>
+            <details>
+              <summary>¿Cómo recibo mi carnet? <span class="icon">+</span></summary>
+              <p>Te lo envío en formato digital. Podés llevarlo en el celular o imprimirlo.</p>
+            </details>
+          </div>
 
-          <details>
-            <summary>¿Es difícil el cuestionario? <span class="icon">+</span></summary>
-            <p>No. Te paso material claro y te explico lo importante para que lo resuelvas con tranquilidad.</p>
-          </details>
-        </div>
-
-        <div style="margin-top: 1.1rem;">
-          <button class="btn btn-outline" type="button" onclick="openWhatsApp('Hola Roxana, tengo una consulta sobre el carnet oficial.')">Consultar por WhatsApp</button>
+          <div style="margin-top: 1.1rem;">
+            <button class="btn btn-outline" type="button" onclick="openWhatsApp('Hola Roxana, tengo una consulta sobre el carnet oficial.')">Consultar por WhatsApp</button>
+          </div>
         </div>
       </section>
 
       <!-- FORMULARIO -->
-      <section id="formulario">
-        <div class="kicker">Inscripción</div>
-        <div class="h2">Dejame tus datos y coordinamos tu inicio</div>
-        <p class="p-muted">Completá esto y te escribo para indicarte el paso a paso y empezar.</p>
+      <section id="formulario" class="block-wrap">
+        <div class="block-inner">
+          <div class="kicker">Inscripción</div>
+          <div class="h2">Dejame tus datos y coordinamos tu inicio</div>
+          <p class="p-muted">Completá esto y te escribo para indicarte el paso a paso y empezar.</p>
 
-        <div class="form-wrap">
-          <form onsubmit="handleFormSubmit(event)">
-            <div class="row">
-              <div>
-                <label for="nombre">Nombre completo</label>
-                <input id="nombre" name="nombre" type="text" required />
+          <div class="form-wrap">
+            <form onsubmit="handleFormSubmit(event)">
+              <div class="row">
+                <div>
+                  <label for="nombre">Nombre completo</label>
+                  <input id="nombre" name="nombre" type="text" required />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" required />
+                </div>
               </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required />
+
+              <div class="row">
+                <div>
+                  <label for="telefono">Celular (con WhatsApp)</label>
+                  <input id="telefono" name="telefono" type="tel" required />
+                </div>
+                <div>
+                  <label for="provincia">Provincia</label>
+                  <input id="provincia" name="provincia" type="text" placeholder="Ej: Buenos Aires" />
+                </div>
               </div>
-            </div>
 
-            <div class="row">
               <div>
-                <label for="telefono">Celular (con WhatsApp)</label>
-                <input id="telefono" name="telefono" type="tel" required />
+                <label for="actividad">¿En qué rubro estás o querés estar?</label>
+                <input id="actividad" name="actividad" type="text" placeholder="Ej: gastronomía, comedor escolar, planta elaboradora..." />
               </div>
+
               <div>
-                <label for="provincia">Provincia</label>
-                <input id="provincia" name="provincia" type="text" placeholder="Ej: Buenos Aires" />
+                <label for="mensaje">Mensaje (opcional)</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Contame si tenés una duda o si querés empezar esta semana."></textarea>
               </div>
-            </div>
 
-            <div>
-              <label for="actividad">¿En qué rubro estás o querés estar?</label>
-              <input id="actividad" name="actividad" type="text" placeholder="Ej: gastronomía, comedor escolar, planta elaboradora..." />
-            </div>
+              <div class="consent">
+                <input id="acepto" type="checkbox" required />
+                <label for="acepto">Acepto que Roxana me contacte por WhatsApp o email para brindarme información e indicarme los próximos pasos.</label>
+              </div>
 
-            <div>
-              <label for="mensaje">Mensaje (opcional)</label>
-              <textarea id="mensaje" name="mensaje" placeholder="Contame si tenés una duda o si querés empezar esta semana."></textarea>
-            </div>
-
-            <div class="consent">
-              <input id="acepto" type="checkbox" required />
-              <label for="acepto">Acepto que Roxana me contacte por WhatsApp o email para brindarme información e indicarme los próximos pasos.</label>
-            </div>
-
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
-              <button class="btn btn-primary" type="submit">Enviar mis datos</button>
-              <button class="btn btn-outline" type="button" onclick="openWhatsApp('Hola Roxana, quiero empezar el curso para obtener el carnet oficial.')">Prefiero hablar por WhatsApp</button>
-            </div>
-          </form>
+              <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+                <button class="btn btn-primary" type="submit">Enviar mis datos</button>
+                <button class="btn btn-outline" type="button" onclick="openWhatsApp('Hola Roxana, quiero empezar el curso para obtener el carnet oficial.')">Prefiero hablar por WhatsApp</button>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
 
       <!-- CTA FINAL -->
       <section class="final-cta" aria-label="Llamado final a la acción">
-        <div>
-          <h3>¿Lista para sacar tu carnet oficial?</h3>
-          <p>Te acompaño de punta a punta: material claro, cuestionario online y gestión ágil (en general 24–48 hs).</p>
-        </div>
-        <div class="actions">
-          <button class="btn btn-primary" type="button" onclick="scrollToId('formulario')">Quiero mi carnet oficial</button>
-          <button class="btn btn-outline" type="button" onclick="openWhatsApp()">Consultar por WhatsApp</button>
+        <div class="inner">
+          <div>
+            <h3>¿Lista para sacar tu carnet oficial?</h3>
+            <p>Te acompaño de punta a punta: material claro, cuestionario online y gestión ágil (en general 24–48 hs).</p>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" type="button" onclick="scrollToId('formulario')">Quiero mi carnet oficial</button>
+            <button class="btn btn-outline" type="button" onclick="openWhatsApp()">Consultar por WhatsApp</button>
+          </div>
         </div>
       </section>
     </main>
@@ -1170,7 +1043,7 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mejora visual del icono en FAQ (opcional)
+    // Icono +/– en FAQ
     document.querySelectorAll("details").forEach(d => {
       d.addEventListener("toggle", () => {
         const icon = d.querySelector("summary .icon");

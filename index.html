@@ -444,11 +444,6 @@
       padding: 0.4rem;
       text-align: center;
     }
-    ..logo-slot img {
-  max-height: 40px;
-  width: 100%;
-  object-fit: contain;
-}
 
     /* Simple cards */
     .two-col {
@@ -797,6 +792,48 @@
     text-align: center;
   }
 }
+    /* =========================
+   FIXES PRUEBA SOCIAL + LOGOS
+   (PEGAR AL FINAL)
+   ========================= */
+
+/* 1) Alinear el CTA de empresas en columna y centrado */
+.split-cta-stack {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+/* 2) Dar más presencia al título "Empresas que ya acompañé" + aire real */
+.logos-kicker {
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem !important;
+}
+
+/* 3) Separar grilla de logos del título */
+.logos-grid {
+  margin-top: 1.2rem;
+}
+
+/* 4) Que los logos respiren más (alto + padding) */
+.logo-slot {
+  height: 82px;             /* más alto para logos grandes */
+  padding: 0.6rem;
+}
+
+/* 5) Imagen del logo: centrada y contenida */
+.logo-slot img {
+  max-height: 64px;
+  width: 100%;
+  object-fit: contain;
+}
+
   </style>
 </head>
 

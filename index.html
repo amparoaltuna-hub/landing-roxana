@@ -68,14 +68,25 @@
       border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .header-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.85rem 1.25rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 1rem;
-    }
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.4rem 1.25rem; /* 👈 más alto */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+
+}
+    @media (max-width: 560px) {
+  .brand-img {
+    height: 64px !important;
+  }
+
+  .header-inner {
+    padding: 1rem 1rem;
+  }
+}
+
 
     .brand {
       display: inline-flex;
@@ -889,6 +900,20 @@
     height: 44px;
   }
 }
+    /* =========================
+   FIX DEFINITIVO LOGO HEADER
+   ========================= */
+
+.brand {
+  align-items: center;
+}
+
+.brand-img {
+  height: 96px !important;   /* tamaño real visible */
+  max-height: none;
+  width: auto;
+}
+
 
 
 

@@ -913,10 +913,19 @@
   max-height: none;
   width: auto;
 }
+/* ====== LOGO HEADER: hacerlo visualmente más grande ====== */
+.brand-img{
+  height: 72px !important;   /* tamaño base del contenedor */
+  width: auto;
+  transform: scale(2.2);     /* ZOOM real del dibujo */
+  transform-origin: left center;
+}
 
-
-
-
+/* para que el zoom no rompa el layout */
+.brand{
+  overflow: visible;
+  padding-left: 8px;
+}
 
   </style>
 </head>

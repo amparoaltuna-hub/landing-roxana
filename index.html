@@ -77,15 +77,7 @@
   gap: 1rem;
 
 }
-    @media (max-width: 560px) {
-  .brand-img {
-    height: 64px !important;
-  }
 
-  .header-inner {
-    padding: 1rem 1rem;
-  }
-}
 
 
     .brand {
@@ -885,59 +877,34 @@
   color: rgba(255,255,255,0.92);
   text-shadow: 0 10px 22px rgba(0,0,0,0.45);
 }
-  /* =========================
-   LOGO HEADER (tamaño final)
+
+/* =========================
+   LOGO HEADER – FIX DEFINITIVO (ÚNICO)
    ========================= */
 
-.brand-img {
-  height: 104px;          /* 👈 tamaño visible y elegante */
-  width: auto;
-  display: block;
-  object-fit: contain;
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
 }
-    @media (max-width: 560px) {
+
+.brand-img {
+  height: 86px;        /* 👈 más grande en desktop */
+  width: auto;
+  max-width: 340px;    /* 👈 más presencia horizontal */
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 560px) {
   .brand-img {
-    height: 44px;
+    height: 62px;
+    max-width: 260px;
   }
 }
-    /* =========================
-   FIX DEFINITIVO LOGO HEADER
-   ========================= */
 
-.brand {
-  align-items: center;
-}
-
-.brand-img {
-  height: 96px !important;   /* tamaño real visible */
-  max-height: none;
-  width: auto;
-}
-
-
-/* para que el zoom no rompa el layout */
-.brand{
-  overflow: visible;
-  padding-left: 8px;
-}
-/* =========================
-   LOGO HEADER – FIX FINAL
-   ========================= */
-
-.brand {
-  display: flex;
-  align-items: center;
-  height: 88px;              /* controla la altura real del header */
-}
-
-.brand-img {
-  height: 76px;              /* 👈 tamaño visible correcto */
-  width: auto;
-  max-width: none;
-  object-fit: contain;
-  display: block;
-}
- 
 
 
   </style>

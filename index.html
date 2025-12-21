@@ -913,19 +913,32 @@
   max-height: none;
   width: auto;
 }
-/* ====== LOGO HEADER: hacerlo visualmente más grande ====== */
-.brand-img{
-  height: 72px !important;   /* tamaño base del contenedor */
-  width: auto;
-  transform: scale(2.2);     /* ZOOM real del dibujo */
-  transform-origin: left center;
-}
+
 
 /* para que el zoom no rompa el layout */
 .brand{
   overflow: visible;
   padding-left: 8px;
 }
+/* =========================
+   LOGO HEADER – FIX FINAL
+   ========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  height: 88px;              /* controla la altura real del header */
+}
+
+.brand-img {
+  height: 76px;              /* 👈 tamaño visible correcto */
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+}
+ 
+
 
   </style>
 </head>

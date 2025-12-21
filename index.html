@@ -833,6 +833,46 @@
   width: 100%;
   object-fit: contain;
 }
+  /* ===== PASOS: overlay + pie con paleta Roxana (naranja/verde) ===== */
+
+/* overlay general para mejorar lectura */
+.step-card::before{
+  background:
+    radial-gradient(700px 260px at 20% 15%, rgba(245,124,0,0.22), rgba(0,0,0,0) 55%),
+    radial-gradient(640px 260px at 80% 20%, rgba(22,194,131,0.18), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.86));
+}
+
+/* pie inferior (oscuro neutro, no violeta) */
+.step-card .content{
+  width: 100%;
+  padding: 1.05rem 1.1rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.72));
+}
+
+/* título con acento naranjita */
+.step-card .title{
+  color: #fff;
+  text-shadow: 0 10px 22px rgba(0,0,0,0.45);
+}
+
+/* detalle: subrayado/acento naranja abajo del título */
+.step-card .title::after{
+  content:"";
+  display:block;
+  width: 52px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(245,124,0,0.95);
+  margin-top: 0.45rem;
+}
+
+/* descripción más legible */
+.step-card .desc{
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 10px 22px rgba(0,0,0,0.45);
+}
 
   </style>
 </head>

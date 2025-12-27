@@ -435,19 +435,25 @@
   margin-top: 0.35rem; /* baja un poquito la fila */
 }
     .logo-slot {
-      height: 54px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.92);
-      border: 1px dashed rgba(0,0,0,0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8a8a8a;
-      font-weight: 900;
-      font-size: 0.82rem;
-      padding: 0.4rem;
-      text-align: center;
-    }
+  height: 96px;                 /* 👈 más alto = más logo */
+  border-radius: 0;             /* sin tarjeta */
+  background: transparent;      /* fondo limpio */
+  border: none;                 /* ❌ chau línea punteada */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;              /* menos padding */
+}
+    .logo-slot img {
+  max-height: 80px;     /* 👈 antes seguro estaba en 40–60 */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.logos {
+  gap: 1.2rem;   /* antes 0.8rem */
+}
+
 
     /* Simple cards */
     .two-col {

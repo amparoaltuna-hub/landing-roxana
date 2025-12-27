@@ -1057,9 +1057,71 @@
     font-size: 2.25rem;
   }
 }
+/* =========================
+   BARRA BENEFICIOS (como captura)
+   ========================= */
+
+.benefits-strip{
+  margin-top: 1.2rem;
+  margin-bottom: 1.3rem;
+
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.07);
+  border-radius: 22px;
+
+  padding: 1.1rem 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.1rem;
+}
+
+.benefit-item{
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.benefit-ico{
+  color: var(--color-green-dark); /* tono Roxana */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-text{
+  font-weight: 950;
+  letter-spacing: -0.01em;
+  color: #0b4b3a; /* verde oscuro suave */
+  line-height: 1.05;
+  font-size: 1.15rem;
+}
+
+.benefit-sep{
+  width: 1px;
+  height: 48px;
+  background: rgba(0,0,0,0.10);
+}
+
+/* Responsive: en mobile se apila prolijo */
+@media (max-width: 860px){
+  .benefits-strip{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem 1.2rem;
+  }
+  .benefit-sep{
+    display: none;
+  }
+  .benefit-text{
+    font-size: 1.05rem;
+    text-align: left;
+  }
+}
     
-
-
 
   </style>
 </head>
@@ -1220,6 +1282,63 @@
     </div>
   </div>
 </div>
+ <!-- Barra de beneficios (como referencia) -->
+<div class="benefits-strip" aria-label="Beneficios del curso">
+  <div class="benefit-item">
+    <div class="benefit-ico" aria-hidden="true">
+      <!-- Reloj -->
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none">
+        <path d="M12 8v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M12 22a10 10 0 1 0-10-10 10 10 0 0 0 10 10Z" stroke="currentColor" stroke-width="2"/>
+        <path d="M9 2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="benefit-text">Ahorrá<br/>tiempo</div>
+  </div>
+
+  <div class="benefit-sep" aria-hidden="true"></div>
+
+  <div class="benefit-item">
+    <div class="benefit-ico" aria-hidden="true">
+      <!-- Argentina (silueta simple) -->
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none">
+        <path d="M12 2l2 3-1 3 2 2-1 3 2 2-2 3 1 3-3-1-2-3 1-3-2-2 1-3-2-2 2-3-1-3 3 1z"
+              stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="benefit-text">Validez<br/>Nacional</div>
+  </div>
+
+  <div class="benefit-sep" aria-hidden="true"></div>
+
+  <div class="benefit-item">
+    <div class="benefit-ico" aria-hidden="true">
+      <!-- Celular -->
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none">
+        <path d="M9 2h6a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"
+              stroke="currentColor" stroke-width="2"/>
+        <path d="M10 19h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="benefit-text">100%<br/>Online</div>
+  </div>
+
+  <div class="benefit-sep" aria-hidden="true"></div>
+
+  <div class="benefit-item">
+    <div class="benefit-ico" aria-hidden="true">
+      <!-- Calendario -->
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none">
+        <path d="M7 3v3M17 3v3M4 8h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M6 6h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"
+              stroke="currentColor" stroke-width="2"/>
+        <path d="M8 12h4M8 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="benefit-text">3 años de<br/>Vigencia</div>
+  </div>
+</div>
+         
 
 <!-- CTA empresas (debajo) -->
 <div class="split-cta split-cta-stack" role="note" aria-label="Mensaje breve">
@@ -1231,7 +1350,9 @@
    Empresas · Contactar
   </button>
 </div>
-
+          
+</div> <!-- ✅ cierre de .block-inner -->
+</section>
 
 <!-- Logos -->
 <div style="margin-top: 1.6rem;">

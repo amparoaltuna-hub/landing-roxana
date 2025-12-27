@@ -1453,60 +1453,45 @@
         </div>
       </section>
 
-      <!-- FORMULARIO -->
-      <section id="formulario" class="block-wrap">
-        <div class="block-inner">
-          <div class="kicker">Inscripción</div>
-          <div class="h2">Dejame tus datos y coordinamos tu inicio</div>
-          <p class="p-muted">Completá esto y te escribo para indicarte el paso a paso y empezar.</p>
+    <!-- FORMULARIO -->
+<section id="formulario" class="block-wrap">
+  <div class="block-inner">
+    <div class="kicker">Inscripción</div>
+    <div class="h2">Dejame tus datos y te contacto por WhatsApp</div>
+    <p class="p-muted">Completá nombre y tu número de WhatsApp. Si querés, dejá un mensaje.</p>
 
-          <div class="form-wrap">
-            <form onsubmit="handleFormSubmit(event)">
-              <div class="row">
-                <div>
-                  <label for="nombre">Nombre completo</label>
-                  <input id="nombre" name="nombre" type="text" required />
-                </div>
-                <div>
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" required />
-                </div>
-              </div>
+    <div class="form-wrap">
+      <form id="leadForm">
+        <div class="row">
+          <div>
+            <label for="nombre">Nombre y apellido</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Ej: Ana Pérez" required />
+          </div>
 
-              <div class="row">
-                <div>
-                  <label for="telefono">Celular (con WhatsApp)</label>
-                  <input id="telefono" name="telefono" type="tel" required />
-                </div>
-                <div>
-                  <label for="provincia">Provincia</label>
-                  <input id="provincia" name="provincia" type="text" placeholder="Ej: Buenos Aires" />
-                </div>
-              </div>
-
-              <div>
-                <label for="actividad">¿En qué rubro estás o querés estar?</label>
-                <input id="actividad" name="actividad" type="text" placeholder="Ej: gastronomía, comedor escolar, planta elaboradora..." />
-              </div>
-
-              <div>
-                <label for="mensaje">Mensaje (opcional)</label>
-                <textarea id="mensaje" name="mensaje" placeholder="Contame si tenés una duda o si querés empezar esta semana."></textarea>
-              </div>
-
-              <div class="consent">
-                <input id="acepto" type="checkbox" required />
-                <label for="acepto">Acepto que Roxana me contacte por WhatsApp o email para brindarme información e indicarme los próximos pasos.</label>
-              </div>
-
-              <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
-                <button class="btn btn-primary" type="submit">Enviar mis datos</button>
-                <button class="btn btn-outline" type="button" onclick="openWhatsApp('Hola Roxana, quiero empezar el curso para obtener el carnet oficial.')">Prefiero hablar por WhatsApp</button>
-              </div>
-            </form>
+          <div>
+            <label for="whatsapp">Tu WhatsApp</label>
+            <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel"
+                   placeholder="Ej: 11 2345 6789" required />
           </div>
         </div>
-      </section>
+
+        <div>
+          <label for="mensaje">Mensaje (opcional)</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Ej: Quiero hacerlo esta semana. ¿Cómo empiezo?"></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+          Enviar mis datos por WhatsApp
+        </button>
+
+        <div class="consent">
+          <input id="consent" type="checkbox" required />
+          <label for="consent">Acepto que me contacten por WhatsApp para coordinar el trámite.</label>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
       <!-- CTA FINAL -->
       <section class="final-cta" aria-label="Llamado final a la acción">
@@ -1549,41 +1534,69 @@
     </a>
   </div>
 
+<script>
+  // ====== CONFIG ======
+  // Reemplazá por el WhatsApp real de Roxana:
+  const WHATSAPP_NUMBER = "5490000000000";
 
-  </div>
+  function scrollToId(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
-  <script>
-    // ====== CONFIG ======
-    // Reemplazá por el WhatsApp real de Roxana:
-    const WHATSAPP_NUMBER = "5490000000000";
+  function openWhatsApp(customText) {
+    const text = customText || "Hola Roxana, quiero info para obtener el carnet oficial de manipulador de alimentos.";
+    const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
 
-    function scrollToId(id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  // ====== FORM → WHATSAPP ======
+  function onlyDigits(str) {
+    return (str || "").replace(/\D/g, "");
+  }
 
-    function openWhatsApp(customText) {
-      const text = customText || "Hola Roxana, quiero info para obtener el carnet oficial de manipulador de alimentos.";
-      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("leadForm");
+    if (!form) return;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const whatsapp = document.getElementById("whatsapp").value.trim();
+      const mensaje = document.getElementById("mensaje")?.value.trim();
+
+      if (!nombre || !whatsapp) {
+        alert("Por favor completá tu nombre y tu WhatsApp.");
+        return;
+      }
+
+      const texto =
+`Hola Roxana 👋
+Te dejo mis datos para gestionar el Carnet de Manipulador de Alimentos:
+
+• Nombre: ${nombre}
+• WhatsApp: ${onlyDigits(whatsapp)}
+${mensaje ? `• Mensaje: ${mensaje}` : ""}
+
+¿Me contás cómo seguimos?`;
+
+      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(texto);
       window.open(url, "_blank", "noopener,noreferrer");
-    }
-
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      alert("¡Gracias! Ya recibí tus datos. En breve te contacto para indicarte el paso a paso y coordinar tu inicio.");
-      event.target.reset();
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Icono +/– en FAQ
-    document.querySelectorAll("details").forEach(d => {
-      d.addEventListener("toggle", () => {
-        const icon = d.querySelector("summary .icon");
-        if (!icon) return;
-        icon.textContent = d.open ? "–" : "+";
-      });
     });
-  </script>
+  });  // ✅ ESTE CIERRE TE FALTABA
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Icono +/– en FAQ
+  document.querySelectorAll("details").forEach(d => {
+    d.addEventListener("toggle", () => {
+      const icon = d.querySelector("summary .icon");
+      if (!icon) return;
+      icon.textContent = d.open ? "–" : "+";
+    });
+  });
+</script>
+ 
 </body>
 </html>

@@ -1536,7 +1536,6 @@
 
 <script>
   // ====== CONFIG ======
-  // Reemplazá por el WhatsApp real de Roxana:
   const WHATSAPP_NUMBER = "5491157530083";
 
   function scrollToId(id) {
@@ -1584,11 +1583,10 @@ ${mensaje ? `• Mensaje: ${mensaje}` : ""}
       const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(texto);
       window.open(url, "_blank", "noopener,noreferrer");
     });
-  });  // ✅ ESTE CIERRE TE FALTABA
+  });
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Icono +/– en FAQ
   document.querySelectorAll("details").forEach(d => {
     d.addEventListener("toggle", () => {
       const icon = d.querySelector("summary .icon");
@@ -1597,6 +1595,7 @@ ${mensaje ? `• Mensaje: ${mensaje}` : ""}
     });
   });
 </script>
+
  
 </body>
 </html>

@@ -1609,42 +1609,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 
 <script>
-  // ====== CONFIG ======
-  const WHATSAPP_NUMBER = "5491157530083";
+// ====== CONFIG ======
+const WHATSAPP_NUMBER = "5491157530083";
 
-  function scrollToId(id) {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
-  function openWhatsApp(customText) {
-    const text = customText || "Hola Roxana, quiero info para obtener el carnet oficial de manipulador de alimentos.";
-    const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
-    window.open(url, "_blank", "noopener,noreferrer");
-  }
+function openWhatsApp(customText) {
+  const text = customText || "Hola Roxana, quiero info para obtener el carnet oficial de manipulador de alimentos.";
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
 
-  // ====== FORM → WHATSAPP ======
-  function onlyDigits(str) {
-    return (str || "").replace(/\D/g, "");
-  }
+  // ✅ Evento para GTM (conversión WhatsApp)
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "whatsapp_click",
+    whatsapp_number: WHATSAPP_NUMBER
+  });
+
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+// ====== FORM → WHATSAPP ======
+function onlyDigits(str) {
+  return (str || "").replace(/\D/g, "");
+}
 
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("leadForm");
     if (!form) return;
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+   form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-      const nombre = document.getElementById("nombre").value.trim();
-      const whatsapp = document.getElementById("whatsapp").value.trim();
-      const mensaje = document.getElementById("mensaje")?.value.trim();
+  const nombre = document.getElementById("nombre").value.trim();
+  const whatsapp = document.getElementById("whatsapp").value.trim();
+  const mensaje = document.getElementById("mensaje")?.value.trim();
 
-      if (!nombre || !whatsapp) {
-        alert("Por favor completá tu nombre y tu WhatsApp.");
-        return;
-      }
+  if (!nombre || !whatsapp) {
+    alert("Por favor completá tu nombre y tu WhatsApp.");
+    return;
+  }
 
-      const texto =
+  const texto =
 `Hola Roxana 👋
 Te dejo mis datos para gestionar el Carnet de Manipulador de Alimentos:
 
@@ -1654,10 +1662,9 @@ ${mensaje ? `• Mensaje: ${mensaje}` : ""}
 
 ¿Me contás cómo seguimos?`;
 
-      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(texto);
-      window.open(url, "_blank", "noopener,noreferrer");
-    });
-  });
+  // ✅ Acá disparás conversión + abrís WhatsApp
+  openWhatsApp(texto);
+});
 
   document.getElementById("year").textContent = new Date().getFullYear();
 

@@ -1637,22 +1637,22 @@ function onlyDigits(str) {
 }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("leadForm");
-    if (!form) return;
+  const form = document.getElementById("leadForm");
 
-   form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-  const nombre = document.getElementById("nombre").value.trim();
-  const whatsapp = document.getElementById("whatsapp").value.trim();
-  const mensaje = document.getElementById("mensaje")?.value.trim();
+      const nombre = document.getElementById("nombre")?.value.trim();
+      const whatsapp = document.getElementById("whatsapp")?.value.trim();
+      const mensaje = document.getElementById("mensaje")?.value.trim();
 
-  if (!nombre || !whatsapp) {
-    alert("Por favor completá tu nombre y tu WhatsApp.");
-    return;
-  }
+      if (!nombre || !whatsapp) {
+        alert("Por favor completá tu nombre y tu WhatsApp.");
+        return;
+      }
 
-  const texto =
+      const texto =
 `Hola Roxana 👋
 Te dejo mis datos para gestionar el Carnet de Manipulador de Alimentos:
 
@@ -1662,19 +1662,22 @@ ${mensaje ? `• Mensaje: ${mensaje}` : ""}
 
 ¿Me contás cómo seguimos?`;
 
-  // ✅ Acá disparás conversión + abrís WhatsApp
-  openWhatsApp(texto);
-});
+      openWhatsApp(texto);
+    });
+  }
 
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  document.querySelectorAll("details").forEach(d => {
+  document.querySelectorAll("details").forEach((d) => {
     d.addEventListener("toggle", () => {
       const icon = d.querySelector("summary .icon");
       if (!icon) return;
       icon.textContent = d.open ? "–" : "+";
     });
   });
+});
+
 </script>
 
  

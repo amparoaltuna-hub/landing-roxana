@@ -198,21 +198,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: rgba(245,124,0,0.14);
       transform: rotate(-8deg);
     }
-    .block-wrap::after {
-      content: "";
-      position: absolute;
-      width: 520px;
-      height: 240px;
-      right: -180px;
-      bottom: -110px;
-      border-radius: 28px;
-      background: rgba(22,194,131,0.14);
-      transform: rotate(10deg);
-    }
-    .block-inner {
-      position: relative;
-      padding: 2.2rem 2.0rem;
-    }
+.block-wrap::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 240px;
+  right: -180px;
+  bottom: -110px;
+  border-radius: 28px;
+  background: rgba(22,194,131,0.14);
+  transform: rotate(10deg);
+}
+
+.block-inner {
+  position: relative;
+  padding: 2.2rem 2.0rem;
+}
+
+/* ✅ FIX: evita que las decoraciones tapen clicks en mobile */
+.block-wrap::before,
+.block-wrap::after {
+  pointer-events: none;
+  z-index: 0;
+}
+
+.block-inner {
+  position: relative;
+  z-index: 1;
+}
+
 
     .kicker {
       display: inline-flex;
@@ -1181,7 +1195,12 @@ input:not([type="checkbox"]):focus, textarea:focus {
     text-align: left;
   }
 }
-    
+    /* ✅ FIX: que el botón de WhatsApp no tape el checkbox en mobile */
+@media (max-width: 560px) {
+  .whatsapp-floating {
+    bottom: 5.5rem; /* lo sube */
+  }
+}
 
   </style>
 </head>

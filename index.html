@@ -1531,8 +1531,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section id="formulario" class="block-wrap">
   <div class="block-inner">
     <div class="kicker">Inscripción</div>
-    <div class="h2">Dejame tus datos y te contacto por WhatsApp</div>
-    <p class="p-muted">Completá nombre y tu número de WhatsApp. Si querés, dejá un mensaje.</p>
+    <div class="h2">Dejame tus datos y te contacto</div>
+    <p class="p-muted">Completá tu nombre y desde dónde me escribís (provincia/ciudad). Si querés, dejá un mensaje.</p>
 
     <div class="form-wrap">
       <form id="leadForm">
@@ -1644,11 +1644,11 @@ function onlyDigits(str) {
       e.preventDefault();
 
       const nombre = document.getElementById("nombre")?.value.trim();
-      const whatsapp = document.getElementById("whatsapp")?.value.trim();
+      const origen = document.getElementById("origen")?.value.trim();
       const mensaje = document.getElementById("mensaje")?.value.trim();
 
-      if (!nombre || !whatsapp) {
-        alert("Por favor completá tu nombre y tu WhatsApp.");
+      if (!nombre || !origen) {
+        alert("Por favor completá tu nombre y desde dónde me escribís (provincia/ciudad).");
         return;
       }
 
@@ -1657,7 +1657,7 @@ function onlyDigits(str) {
 Te dejo mis datos para gestionar el Carnet de Manipulador de Alimentos:
 
 • Nombre: ${nombre}
-• WhatsApp: ${onlyDigits(whatsapp)}
+• ¿De dónde me escribís?: ${origen}
 ${mensaje ? `• Mensaje: ${mensaje}` : ""}
 
 ¿Me contás cómo seguimos?`;
@@ -1677,7 +1677,6 @@ ${mensaje ? `• Mensaje: ${mensaje}` : ""}
     });
   });
 });
-
 </script>
 
  

@@ -1711,6 +1711,10 @@ Te dejo mis datos para gestionar el Carnet de Manipulador de Alimentos:
 ${mensaje ? `• Mensaje: ${mensaje}` : ""}
 
 ¿Me contás cómo seguimos?`;
+// 👉 EVENTO DE CONVERSIÓN META (LEAD)
+    if (window.fbq) {
+      fbq('track', 'Lead');
+    }
 
       openWhatsApp(texto);
     });
